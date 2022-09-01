@@ -11,7 +11,7 @@ export const FooterContainer = styled.footer`
 
     margin-top: 2rem;
 
-    background-color: #EEE;
+    background-color: #EAE3D2;
 
     span {
         font-size: 12px;

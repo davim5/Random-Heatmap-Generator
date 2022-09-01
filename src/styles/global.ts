@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         margin: auto;
-        padding: 2.5rem;
 
         background: #F9F5EB;
         color: ${(props) => props.theme['gray-600']};
