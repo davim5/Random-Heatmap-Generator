@@ -49,10 +49,17 @@ export const conversationsData = [
 export const randomTitlesData = [
   [
     'Número de', 
-    'Ataques de',
-    'Assaltos de', 
-    'Atuações teatrais de',
-    'Assédio de'
+    'Número de ataques de',
+    'Número assaltos de', 
+    'Número atuações teatrais de',
+    'Quantidade de assédios de',
+    'Numero de vídeos assistidos sobre',
+    'Numero de livros lidos sobre',
+    'Quantidade de estudantes de',
+    'Quantidade de especialistas ',
+    'Pessoas que pensam que são',
+    'Coachs especializados em',
+    'Número de cursos vendidos sobre'
   ],
   [
     ' tubarões',
@@ -62,6 +69,19 @@ export const randomTitlesData = [
     ' programadores',
     ' gnomos',
     ' jogadores de futebol',
+    ' meteoros',
+    ' médicos',
+    ' magos',
+    ' haters',
+    ' youtubers',
+    ' jogadores de League of Legends',
+    ' hipsters',
+    ' políticos',
+    ' imãs de geladeira',
+    ' sapos cururu',
+    ' blogueiras',
+    ' tiktokers',
+    ' hackers'
   ],
   [
     ' por dia',
@@ -70,6 +90,17 @@ export const randomTitlesData = [
     ' nas férias',
     ' nos fins de semana',
     ' no Linkedin',
-    ' em universidades'
+    ' em universidades',
+    ' em baixo da água',
+    ' em escolas',
+    ' nos anos 90',
+    ' há 2000 anos',
+    ' em viagens escolares',
+    ' no Tiktok',
+    ' no Instagram',
+    ' no Youtube',
+    ' nos esgotos',
+    ' em pontos turísticos',
+    ' na deepweb'
   ]
 ]

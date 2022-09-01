@@ -280,8 +280,8 @@ export function Map() {
         {/* </ZoomableGroup> */}
       </ComposableMap>
       
-      </MapContainer>
       <ReactTooltip />
+      </MapContainer>
       </>
     )
 }
