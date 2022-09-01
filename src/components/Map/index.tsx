@@ -6,12 +6,12 @@ import {
     // ZoomableGroup,
     Annotation
   } from 'react-simple-maps';
-import { scaleQuantize } from 'd3-scale';
+import { NumberValue, scaleQuantize } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
 import ReactTooltip from 'react-tooltip';
 import Mapa from '../../assets/BrasilMap.json';
 import { useState } from 'react';
-import { conversationsData } from '../../assets/data';
+import { conversationsData, randomTitlesData } from '../../assets/data';
 
 const geoUrl = Mapa;
 
@@ -41,11 +41,12 @@ const colorScale = scaleQuantize<string>()
 
 interface IState {
   id: string;
-  chats: number;
+  chats: NumberValue;
 }
 
 export function Map() {
     const [heatmapData,setHeatmapData]= useState<IState[]>(conversationsData);
+    const [randomTitle,setRandomTitle] = useState(randomTitlesData[0][0] + randomTitlesData[1][0] + randomTitlesData[2][0]);
 
     function randomizeData() {
       let randomizedData = 
@@ -162,12 +163,25 @@ export function Map() {
 
       setHeatmapData(randomizedData);
     }
+
+    function randomizeTitle() {
+      let firstText = randomTitlesData[0][Math.floor(Math.random() * randomTitlesData[0].length)];
+      let secondText = randomTitlesData[1][Math.floor(Math.random() * randomTitlesData[1].length)];
+      let thirdText = randomTitlesData[2][Math.floor(Math.random() * randomTitlesData[2].length)];
+
+      setRandomTitle(firstText+secondText+thirdText);
+    }
+
+    function handleRandomizer() {
+      randomizeData();
+      randomizeTitle();
+    }
     
     return (
       <>
-      <button onClick={() => randomizeData()}>Randomize</button>     
+      <button onClick={() => handleRandomizer()}>Randomize</button>     
 
-      <h2>Numero de mortes por ataque de capivara</h2>
+      <h2>{randomTitle}</h2>
         <MapContainer>
             <ComposableMap
         width={500}
@@ -190,7 +204,7 @@ export function Map() {
               geographies.map((geo) => {
                 const cur = heatmapData.find((s) => s.id === geo.id);
                 const centroid = geoCentroid(geo);
-                let amount;
+                let amount:NumberValue;
                 cur
                 ? (amount = cur.chats)
                 : (amount = 0);
@@ -199,14 +213,14 @@ export function Map() {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    fill={colorScale(cur ? cur.chats : "#000")}
+                    fill={colorScale(cur ? cur.chats : 0)}
                     data-tip={`${geo.id}: ${amount}`}
                     style={{
                       default: {
                         outline: "none",
                       },
                       hover: {
-                        fill: colorScale(cur ? cur.chats : "#000"),
+                        fill: colorScale(cur ? cur.chats : 0),
                         stroke: "#222",
                         strokeWidth: 3,
                         outline: "none",
@@ -264,9 +278,9 @@ export function Map() {
           </Geographies>
         {/* </ZoomableGroup> */}
       </ComposableMap>
-      <ReactTooltip />
       
       </MapContainer>
+      <ReactTooltip />
       </>
     )
 }

@@ -44,3 +44,32 @@ export const conversationsData = [
     chats: 0,
   },
 ];
+
+// *Metrica* de *causa* ?adjetivo? *frequencia*
+export const randomTitlesData = [
+  [
+    'Número de', 
+    'Ataques de',
+    'Assaltos de', 
+    'Atuações teatrais de',
+    'Assédio de'
+  ],
+  [
+    ' tubarões',
+    ' cavaleiros medievais',
+    ' bebês',
+    ' alcoólatras',
+    ' programadores',
+    ' gnomos',
+    ' jogadores de futebol',
+  ],
+  [
+    ' por dia',
+    ' por m²',
+    ' em idosos', 
+    ' nas férias',
+    ' nos fins de semana',
+    ' no Linkedin',
+    ' em universidades'
+  ]
+]
