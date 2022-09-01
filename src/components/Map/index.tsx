@@ -1,4 +1,5 @@
-import { HomeContainer, MapContainer } from './styles'
+import { MapContainer } from './styles'
+import { Button } from 'reactstrap';
 import {
     ComposableMap,
     Geographies,
@@ -179,7 +180,7 @@ export function Map() {
     
     return (
       <>
-      <button onClick={() => handleRandomizer()}>Randomize</button>     
+      <Button color="primary" onClick={() => handleRandomizer()}>Randomize</Button>     
 
       <h2>{randomTitle}</h2>
         <MapContainer>
