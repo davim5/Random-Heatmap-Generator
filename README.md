@@ -47,14 +47,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [x] Generate heatmap.
 - [x] Random title.
 - [x] Random numbers for each state.
-- [] Color select.
-- [] Dark mode.
 - [] Disable to randomize only the title.
 - [] Disable to randomize only the values.
+- [] Customize values range.
+- [] Color select.
 - [] Configurations menu.
+- [] Dark mode.
 
 ---
-
 
 ## 📌 Support
 
