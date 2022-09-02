@@ -11,7 +11,7 @@ import { NumberValue, scaleQuantize } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
 import ReactTooltip from 'react-tooltip';
 import Mapa from '../../assets/BrasilMap.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { conversationsData, randomTitlesData } from '../../assets/data';
 
 const geoUrl = Mapa;
@@ -48,7 +48,7 @@ interface IState {
 export function Map() {
     const [heatmapData,setHeatmapData]= useState<IState[]>(conversationsData);
     const [randomTitle,setRandomTitle] = useState(randomTitlesData[0][0] + randomTitlesData[1][0] + randomTitlesData[2][0]);
-
+    const [flag , setFlag] = useState(false);
     function randomizeData() {
       let randomizedData = 
       [
@@ -176,6 +176,7 @@ export function Map() {
     function handleRandomizer() {
       randomizeData();
       randomizeTitle();
+      setFlag(true);
     }
     
     return (
@@ -279,8 +280,9 @@ export function Map() {
           </Geographies>
         {/* </ZoomableGroup> */}
       </ComposableMap>
-      
-      <ReactTooltip />
+      {
+        flag && <ReactTooltip />
+      }
       </MapContainer>
       </>
     )
